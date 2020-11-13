@@ -6,7 +6,7 @@ const GradationsList = (props) => {
   return(
     <div>
       {props.gradationsProperty.map((value, index) =>
-        <Gradation gradationProperty={value} key={index.toString()} />
+        <Gradation gradationProperty={value} index={index} key={index.toString()} />
       )}
     </div>
   )
