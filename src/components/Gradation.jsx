@@ -1,5 +1,4 @@
 import React from 'react';
-import App from '../App';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 
 const Gradation = (props) => {
@@ -9,8 +8,8 @@ const Gradation = (props) => {
   };
   return(
     <div className="gradation-color" id={`gradation-color-${props.index}`} style={style}>
-      <div className="copy-btn" onClick={() => props.selectCopy(props.index)}>
-        <FileCopyOutlinedIcon /><span className="copy-text">COPY CSS</span>
+      <div className="copy-btn" id={`copy-btn-${props.index}`} onClick={() => props.copyToClipboard(props.index)}>
+        <FileCopyOutlinedIcon /><span className="copy-text">CSS COPY</span>
       </div>
 
         {/* <Tooltip title="Copy">

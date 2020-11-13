@@ -9,7 +9,7 @@ export default class App extends React.Component {
       gradationsProperty: [],
       dataset: defaultDataset
     }
-    this.selectCopy = this.selectCopy.bind(this);
+    this.copyToClipboard = this.copyToClipboard.bind(this);
   }
 
   initGradationProperty = () => {
@@ -22,12 +22,13 @@ export default class App extends React.Component {
     })
   }
 
-  selectCopy = (index) => {
+  copyToClipboard = (index) => {
     const copyIndex = index;
     // console.log(copyIndex);
     // コピー対象をJavaScript上で変数として定義する
     const copyId = `copy-target-${copyIndex}`;
-    const gradationId = `gradation-color-${copyIndex}`;
+    const copyBtnId = `copy-btn-${copyIndex}`;
+    // const gradationId = `gradation-color-${copyIndex}`;
     const copyTarget = document.getElementById(copyId);
 
     // コピー対象のテキストを選択する
@@ -38,10 +39,12 @@ export default class App extends React.Component {
 
     if(res) {
       console.log('成功')
+      const copyText = document.getElementById(copyBtnId).children[1];
+      copyText.innerHTML = 'COPIED';
       // const copyText = document.getElementById(gradationId).querySelector('.copy-text');
       // console.log(copyText.innerHTML('変更'))
       setTimeout(() => {
-        // copyText.innerHTML('CSS COPY');
+        copyText.innerHTML = 'CSS COPY';
       }, 500)
     }else {
       alert("コピーに失敗しました。もう一度お試しください。");
@@ -55,7 +58,7 @@ export default class App extends React.Component {
   render() {
     return(
       <>
-        <GradationsList gradationsProperty={this.state.gradationsProperty} selectCopy={this.selectCopy} />
+        <GradationsList gradationsProperty={this.state.gradationsProperty} copyToClipboard={this.copyToClipboard} />
       </>
     )
   }

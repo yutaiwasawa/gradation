@@ -6,7 +6,7 @@ const GradationsList = (props) => {
   return(
     <div>
       {props.gradationsProperty.map((value, index) =>
-        <Gradation gradationProperty={value} index={index} selectCopy={props.selectCopy}  key={index.toString()} />
+        <Gradation gradationProperty={value} index={index} copyToClipboard={props.copyToClipboard} key={index.toString()} />
       )}
     </div>
   )
