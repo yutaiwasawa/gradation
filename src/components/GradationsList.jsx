@@ -58,8 +58,8 @@ const GradationsList = (props) => {
     <div>
       <GradationList>
       {props.gradationsProperty.map((value, index) =>
-        <li>
-          <Gradation gradationProperty={value} index={index} copyToClipboard={props.copyToClipboard} key={index.toString()} />
+        <li key={index.toString()} >
+          <Gradation gradationProperty={value} index={index} copyToClipboard={props.copyToClipboard} />
         </li>
       )}
       </GradationList>

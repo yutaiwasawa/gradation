@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { generateMedia } from 'styled-media-query';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
+import {GradationStatus} from '.';
 
 const customMedia = generateMedia({
   sm: '481px',
@@ -52,6 +53,7 @@ const Gradation = (props) => {
         </div>
           <input id={`copy-target-${props.index}`} type="text" value={`background: ${style.background}`} readOnly></input>
       </div>
+      <GradationStatus />
     </WrapGradation>
   )
 }
