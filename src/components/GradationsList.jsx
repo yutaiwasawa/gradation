@@ -1,13 +1,68 @@
 import React from 'react';
 import {Gradation} from '.'
+import styled from 'styled-components';
+import { generateMedia } from 'styled-media-query';
+import {scssVariables as v} from '../variables';
+
+const customMedia = generateMedia({
+  sm: '481px',
+  md: '769px'
+})
+
+const m = customMedia.greaterThan("md");
+
+const GradationList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+
+  ${m`
+    grid-template-columns: repeat(3, 1fr);
+  `}
+
+
+  color: ${v.$fontColor};
+  margin: 100px;
+
+  li {
+    margin: 0 2rem;
+
+    ${m`
+      margin: 0 20px;
+    `}
+
+    &:nth-of-type(3n+1) {
+      margin: 0 2rem 0 0;
+
+      ${m`
+        margin: 0 20px 0 0;
+      `}
+    }
+
+    &:nth-of-type(3n) {
+      margin: 0;
+
+      ${m`
+        margin: 0 0 0 20px;
+      `}
+    }
+
+    ${m`
+      // width: 100%;
+    `}
+  }
+`
 
 const GradationsList = (props) => {
   console.log('GradationListProps',props)
   return(
     <div>
+      <GradationList>
       {props.gradationsProperty.map((value, index) =>
-        <Gradation gradationProperty={value} index={index} copyToClipboard={props.copyToClipboard} key={index.toString()} />
+        <li>
+          <Gradation gradationProperty={value} index={index} copyToClipboard={props.copyToClipboard} key={index.toString()} />
+        </li>
       )}
+      </GradationList>
     </div>
   )
 }

@@ -1,6 +1,43 @@
 import React from 'react';
+import reset from 'react-style-reset/string';
+import { createGlobalStyle } from 'styled-components';
+import { generateMedia } from 'styled-media-query';
 import {GradationsList} from './components';
 import defaultDataset from './dataset';
+
+const customMedia = generateMedia({
+  sm: '481px',
+  md: '769px'
+})
+
+const m = customMedia.greaterThan('md');
+
+const GlobalStyles = createGlobalStyle`
+  ${reset};
+  html {
+    font-size: 62.5%;
+
+    ${m`
+      font-size: 100%;
+    `}
+  }
+
+  body {
+    font-size: 10px;
+
+    ${m`
+      font-size: 16px;
+    `}
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+
+`;
 
 export default class App extends React.Component {
   constructor(props) {
@@ -58,6 +95,7 @@ export default class App extends React.Component {
   render() {
     return(
       <>
+        <GlobalStyles />
         <GradationsList gradationsProperty={this.state.gradationsProperty} copyToClipboard={this.copyToClipboard} />
       </>
     )
