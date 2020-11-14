@@ -3,7 +3,7 @@ import reset from 'react-style-reset/string';
 import { createGlobalStyle } from 'styled-components';
 import { generateMedia } from 'styled-media-query';
 import {GradationsList} from './components';
-import defaultDataset from './dataset';
+import defaultDataset from './dataset.json';
 
 const customMedia = generateMedia({
   sm: '481px',
