@@ -4,11 +4,39 @@ import { generateMedia } from 'styled-media-query';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
+import '@simonwep/pickr/dist/themes/nano.min.css';
+import GPickr from '@simonwep/pickr';
+// import GPickr from '@simonwep/pickr/dist/pickr.es5.min';
 
 const customMedia = generateMedia({
   sm: '481px',
   md: '769px'
 })
+
+window.onload = function() {
+  const gpickr = new GPickr({
+    el: '.gpickr',
+    container: 'body',
+    theme: 'nano', // or 'monolith', or 'nano'
+    useAsButton: false,
+    stops: [
+        ['rgb(255,132,109)', 0],
+        ['rgb(255,136,230)', 1]
+    ]
+  });
+
+  gpickr.on('init', instance => {
+    console.log('あーーーーー')
+    console.log('init', instance);
+  }).on('show', instance => {
+    console.log('いーーーーー')
+    console.log('show', instance);
+  }).on('change', instance => {
+    console.log('change', instance.getGradient());
+  });
+};
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,10 +78,23 @@ const GradationStatus = () => {
   return(
     <div>
       <div className="status-border">
-        <div className={classes.root}>
+      <div className="gpickr"></div>
+
+{/* <div className="entry">
+  #shadow-root
+  <div className="innr">
+    <div className="another">
+    #shadow-root
+      <div className="pickr"></div>
+    </div>
+  </div>
+</div> */}
+
+
+
+        {/* <div className={classes.root}>
           <Typography id="track-false-slider" gutterBottom>
             Removed track
-            <input type="color" defaultValue="#4251f5" />
           </Typography>
           <Slider
             track={false}
@@ -73,7 +114,7 @@ const GradationStatus = () => {
             defaultValue={[20, 37, 50]}
             marks={marks}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   )
