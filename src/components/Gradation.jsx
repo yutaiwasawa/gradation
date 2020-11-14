@@ -53,7 +53,7 @@ const Gradation = (props) => {
         </div>
           <input id={`copy-target-${props.index}`} type="text" value={`background: ${style.background}`} readOnly></input>
       </div>
-      <GradationStatus />
+      {/* <GradationStatus /> */}
     </WrapGradation>
   )
 }
