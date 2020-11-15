@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { generateMedia } from 'styled-media-query';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
-import {GradationStatus} from '.';
+// import {GradationStatus} from '.';
 
 const customMedia = generateMedia({
   sm: '481px',
@@ -66,7 +66,6 @@ const WrapGradation = styled.div`
 `
 
 const Gradation = (props) => {
-  console.log('GradationProps', props.index)
   const style = {
     background: `linear-gradient(${props.gradationProperty})`
   };

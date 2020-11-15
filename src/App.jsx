@@ -61,7 +61,6 @@ export default class App extends React.Component {
 
   copyToClipboard = (index) => {
     const copyIndex = index;
-    // console.log(copyIndex);
     // コピー対象をJavaScript上で変数として定義する
     const copyId = `copy-target-${copyIndex}`;
     const copyBtnId = `copy-btn-${copyIndex}`;
@@ -75,11 +74,9 @@ export default class App extends React.Component {
     const res = document.execCommand("Copy");
 
     if(res) {
-      console.log('成功')
       const copyText = document.getElementById(copyBtnId).children[1];
       copyText.innerHTML = 'COPIED';
       // const copyText = document.getElementById(gradationId).querySelector('.copy-text');
-      // console.log(copyText.innerHTML('変更'))
       setTimeout(() => {
         copyText.innerHTML = 'CSS COPY';
       }, 500)

@@ -53,7 +53,6 @@ const GradationList = styled.ul`
 `
 
 const GradationsList = (props) => {
-  console.log('GradationListProps',props)
   return(
     <div>
       <GradationList>
