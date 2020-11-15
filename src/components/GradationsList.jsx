@@ -24,25 +24,25 @@ const GradationList = styled.ul`
   margin: 100px;
 
   li {
-    margin: 0 2rem;
+    margin: 4rem 0 0 0;
 
     ${m`
-      margin: 0 20px;
+      margin: 40px 20px 0 20px;
     `}
 
     &:nth-of-type(3n+1) {
-      margin: 0 2rem 0 0;
+      margin: 4rem 0 0 0;
 
       ${m`
-        margin: 0 20px 0 0;
+        margin: 40px 20px 0 0;
       `}
     }
 
     &:nth-of-type(3n) {
-      margin: 0;
+      margin: 4rem 0 0 0;
 
       ${m`
-        margin: 0 0 0 20px;
+        margin: 40px 0 0 20px;
       `}
     }
 
